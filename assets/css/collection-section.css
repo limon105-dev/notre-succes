@@ -1,0 +1,89 @@
+/* collection-section css start */
+/* collection tab css start */
+.tab-navs {
+    align-items: center;
+    display: flex;
+    gap: 50px;
+}
+
+.tabs-nav-item-link {
+    color: var(--heading-text-color);
+    font-size: 25px;
+    font-weight: 500;
+    font-family: var(--heading-font);
+    line-height: 140%;
+    display: block;
+    border-bottom: 0;
+    text-wrap: nowrap;
+    text-transform: capitalize;
+    line-height: 1;
+}
+
+.tabs-nav-item-link:hover {
+    text-decoration: underline;
+}
+
+.tab-nav-item.active .tabs-nav-item-link {
+    text-decoration: underline;
+}
+
+.tab-content-wrapper {
+    padding: 16px 0 0 0;
+}
+
+.tab-product-items {
+    padding: 16px 0 0 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px;
+}
+
+.tab-content-text {
+    margin: 15px 0 0 0;
+    max-width: 1062px;
+}
+
+.tab-content-text:first-child {
+    margin: 0;
+}
+
+.tab-wrapper.mobile-tab {
+    display: none;
+}
+
+/* collection tab css end */
+/* collection-section css end */
+
+@media only screen and (max-width: 767px) {
+
+    /* collection section css start */
+    .tab-navs {
+        border-bottom: 0;
+        overflow-x: scroll;
+        padding: 0 0 10px 0;
+    }
+
+    .tab-content-items {
+        padding: 10px 0 0 0;
+    }
+
+
+    /* collection section css end */
+}
+
+
+@media only screen and (max-width: 575px) {
+
+    /* collection section css start */
+
+    .tab-navs {
+        justify-content: flex-start;
+        gap: 10px;
+    }
+
+    .tabs-nav-item-link {
+        padding: 12.5px 30px;
+    }
+
+    /* collection section css end */
+}

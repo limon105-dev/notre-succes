@@ -1,0 +1,114 @@
+/* blog-section css start */
+.blog-items {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.blog-item-img {
+    display: block;
+    overflow: hidden;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    height: 300px;
+}
+
+.blog-item-img img {
+    transition: all ease .3s;
+    -webkit-transition: all ease .3s;
+    -moz-transition: all ease .3s;
+    -ms-transition: all ease .3s;
+    -o-transition: all ease .3s;
+}
+
+.blog-item-img:hover img {
+    transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
+}
+
+.blog-item-content {
+    margin: 10px 0 0 0;
+}
+
+.h6.blog-item-title {
+    color: var(--paragraph-text-color);
+    text-transform: capitalize;
+    transition: all ease .3s;
+    -webkit-transition: all ease .3s;
+    -moz-transition: all ease .3s;
+    -ms-transition: all ease .3s;
+    -o-transition: all ease .3s;
+    font-size: 18px;
+}
+
+.blog-item-title:hover {
+    color: var(--hover-color);
+}
+
+.blog-item-date {
+    margin: 16px 0 0 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.blog-item-date .icon {
+    display: flex;
+}
+
+.blog-item-date .icon path {
+    stroke: var(--text-muted);
+}
+
+.blog-item-date .date {
+    color: var(--text-muted);
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+/* blog-section css end */
+
+@media only screen and (max-width: 992px) {
+
+    /* blog-section css start */
+    .blog-items {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .blog-item-img {
+        height: 350px;
+    }
+
+    /* blog-section css end */
+}
+
+@media only screen and (max-width: 575px) {
+
+    /* blog-section css start */
+    .blog-items {
+        gap: 10px;
+        row-gap: 24px;
+    }
+
+    .blog-item-img {
+        height: 250px;
+    }
+
+    .h6.blog-item-title {
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    .blog-item-date .date {
+        font-size: 12px;
+    }
+
+    /* blog-section css end */
+}

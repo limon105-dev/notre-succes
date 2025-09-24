@@ -1,0 +1,98 @@
+/* icon-item-section css start */
+.icon-item-section {
+    padding: 50px 0;
+    background: var(--section-bg);
+}
+
+.icon-item-items {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    align-items: center;
+}
+
+.icon-item-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 24px;
+}
+
+.icon-item-item:nth-child(2) {
+    border-left: 1px solid var(--border-color);
+    border-right: 1px solid var(--border-color);
+}
+
+.icon-item-img {
+    width: 22%;
+}
+
+.icon-item-content {
+    width: 78%;
+}
+
+.icon-item-title {
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.icon-item-text {
+    color: var(--text-muted);
+    font-size: 14px;
+    margin: 5px 0 0 0;
+    line-height: 20px;
+}
+
+/* icon-item-section css end */
+
+@media only screen and (max-width: 992px) {
+
+    /* icon-item-section css start */
+    .icon-item-item {
+        justify-content: center;
+        gap: 10px;
+        padding: 10px;
+        flex-direction: column;
+    }
+
+    .icon-item-content {
+        width: 100%;
+        text-align: center;
+    }
+
+    /* icon-item-section css end */
+}
+
+@media only screen and (max-width: 767px) {
+
+    /* icon-item-section css start */
+
+    .icon-item-items {
+        gap: 10px;
+    }
+
+    /* icon-item-section css end */
+}
+
+@media only screen and (max-width: 575px) {
+
+    /* icon-item-section css start */
+    .icon-item-section {
+        padding: 30px 0;
+    }
+
+    .icon-item-items {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .icon-item-item:nth-child(2) {
+        border: none;
+    }
+
+    .icon-item-img {
+        width: 16%;
+    }
+}
+
+/* icon-item-section css end */
