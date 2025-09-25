@@ -76,14 +76,19 @@
     --brand-color: #E5E5E5;
     --card-bg: #F7F7F7;
     --border-color: rgba(255, 255, 255, 0.3);
+    --border-color2: #AAAAAA;
+    --border-color3: rgba(0, 0, 0, 0.3);
     --text-muted: #ABABAB;
-    --text-danger: #6D221C;
+    --text-muted2: #6c6c6c;
+    --text-mark: #6D221C;
     --btn-color: #000;
     --btn-bg: #fff;
     --card-badge-bg: #fff;
     --body-color: #fff;
     --section-bg: #2C323E;
     --hover-color: #6D221C;
+    --item-bg1: #E3E3E3;
+    --item-bg2: #AEAEAE;
 
 
     /* font family */
@@ -248,9 +253,9 @@ button {
 }
 
 .btn {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 300;
-    padding: 14px 30px;
+    padding: 12px 30px;
     transition: ease .3s;
     font-family: var(--paragraph-font);
     text-transform: uppercase;
@@ -310,7 +315,7 @@ button {
     position: relative;
     overflow: hidden;
     background-color: var(--black);
-    border: 2px solid var(--black);
+    border: 1px solid var(--black);
 }
 
 .secondary-btn span {
@@ -330,47 +335,27 @@ button {
 
 /* section heading css start */
 .section-heading-wrapper {
-    margin-bottom: 50px;
-    text-align: center;
-}
-
-.section-sub-heading {
-    color: var(--brand-color);
-    font-size: 20px;
-    font-weight: 500;
-    line-height: 26px;
-    font-family: var(--heading-font);
-    margin: 0 0 5px 0;
-}
-
-.section-heading em {
-    color: var(--brand-color);
-    font-style: normal;
+    margin-bottom: 30px;
 }
 
 .section-heading {
-    color: var(--heading-text-color);
+    line-height: 110%;
+    font-size: 25px;
+    font-weight: 500;
     text-transform: capitalize;
-    font-size: 42px;
-    font-family: var(--heading-font);
-    max-width: 650px;
-    margin: 0 auto;
 }
 
 .section-heading-text {
-    color: var(--paragraph-text-color);
+    line-height: 18px;
     margin: 5px auto 0;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 22px;
-    text-align: center;
-    max-width: 500px;
+    font-size: 14px;
+    font-weight: 400;
 }
 
 .section-btn {
     display: flex;
+    margin: 30px 0 0 0;
     justify-content: center;
-    margin: 50px 0 0 0;
 }
 
 /* section heading css end */
@@ -380,6 +365,25 @@ button {
     display: none;
 }
 
+.swiper-horizontal>.swiper-pagination-bullets {
+    bottom: var(--swiper-pagination-bottom, 5px);
+}
+
+.swiper-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet {
+    margin: 0 var(--swiper-pagination-bullet-horizontal-gap, 3px);
+}
+
+.swiper-pagination-bullet {
+    width: 4px;
+    height: 4px;
+    background: var(--item-bg1);
+    opacity: 1;
+}
+
+.swiper-pagination-bullet-active {
+    background: var(--item-bg2);
+}
+
 /* common css end */
 
 
@@ -387,52 +391,11 @@ button {
     .section {
         padding: 50px 0;
     }
-
-    body {
-        margin: 60px 0 0 0;
-    }
 }
 
 @media only screen and (max-width:767px) {
 
     /* common css start */
-    p {
-        font-size: 14px;
-        line-height: 18px;
-    }
-
-    /* btn css start */
-    .btn {
-        font-size: 14px;
-        padding: 12px 46px;
-    }
-
-    /* btn css end */
-    .section-heading-wrapper {
-        margin-bottom: 30px;
-    }
-
-    .section-sub-heading {
-        font-size: 16px;
-        line-height: 22px;
-    }
-
-    .section-heading {
-        line-height: 28px;
-        font-size: 22px;
-        font-weight: 500;
-    }
-
-    .section-heading-text {
-        line-height: 18px;
-        margin: 5px auto 0;
-        font-size: 14px;
-        font-weight: 400;
-    }
-
-    .section-btn {
-        margin: 30px 0 0 0;
-    }
 
     /* common css end */
 }
@@ -440,10 +403,6 @@ button {
 @media only screen and (max-width: 575px) {
 
     /* common css start */
-
-    .section {
-        padding: 30px 0;
-    }
 
     /* common css end */
 }

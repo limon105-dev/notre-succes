@@ -71,6 +71,16 @@ $(document).ready(function () {
 	});
 	// --tab js end--
 
+	$(".card-varient-tap-btn").click(function () {
+		$(this).closest(".product-card").find(".product-varient").addClass("active");
+	})
+	// $("body").click(function () {
+	// 	$(".card-content").find(".product-varient").removeClass("active");
+	// })
+	$(".product-varient").click(function (e) {
+		e.stopPropagation();
+	})
+
 })
 
 // btn js ---
@@ -133,6 +143,72 @@ var swiper = new Swiper(".card-slider", {
 });
 // product slider js end--
 
+// img-gallery slider js start--
+var swiper = new Swiper(".img-gallery-slider", {
+	slidesPerView: 4.5,
+	spaceBetween: 0,
+	grabCursor: true,
+	loop: true,
+	breakpoints: {
+		// when window width is >= 320px
+		1: {
+			slidesPerView: 2.5,
+		},
+		// when window width is >= 768px
+		576: {
+			slidesPerView: 3.2,
+		},
+		// when window width is >= 993px
+		993: {
+			slidesPerView: 3.5,
+		},
+		// when window width is >= 1140x
+		1140: {
+			slidesPerView: 4.5,
+		},
+		// when window width is >= 1290px
+		1290: {
+			slidesPerView: 4.5,
+		}
+	}
+});
+// img-gallery slider js end--
+
+// testimonial slider js start--
+var swiper = new Swiper(".testimonial-slider", {
+	slidesPerView: 3.5,
+	spaceBetween: 10,
+	grabCursor: true,
+	loop: false,
+	scrollbar: {
+		el: ".swiper-scrollbar",
+		hide: true,
+	},
+	breakpoints: {
+		// when window width is >= 320px
+		1: {
+			slidesPerView: 1.1,
+		},
+		// when window width is >= 768px
+		576: {
+			slidesPerView: 2.3,
+		},
+		// when window width is >= 993px
+		993: {
+			slidesPerView: 2.7,
+		},
+		// when window width is >= 1140x
+		1140: {
+			slidesPerView: 3.3,
+		},
+		// when window width is >= 1290px
+		1290: {
+			slidesPerView: 3.5,
+		}
+	}
+});
+// testimonial slider js end--
+
 // product slider js start--
 var swiper = new Swiper(".product-slider", {
 	slidesPerView: 4,
@@ -176,52 +252,3 @@ var swiper = new Swiper(".product-slider", {
 	}
 });
 // product slider js end--
-
-// testimonial slider js start--
-var swiper = new Swiper(".testimonial-slider", {
-	slidesPerView: "auto",
-	centeredSlides: true,
-	spaceBetween: 20,
-	grabCursor: true,
-	loop: true,
-	speed: 1000,
-	pagination: {
-		el: ".swiper-pagination",
-		clickable: true,
-	},
-	navigation: {
-		nextEl: '.product-slider-btn-next',
-		prevEl: '.product-slider-btn-prev',
-	},
-	breakpoints: {
-		// when window width is >= 320px
-		1: {
-			spaceBetween: 10,
-			slidesPerView: 1,
-			centeredSlides: false,
-			speed: 500,
-
-		},
-		// when window width is >= 576px
-		576: {
-			spaceBetween: 15,
-			centeredSlides: false,
-			slidesPerView: 1.1,
-			speed: 500,
-		},
-		// when window width is >= 767px
-		767: {
-			spaceBetween: 15,
-			centeredSlides: false,
-			slidesPerView: 1.5,
-			speed: 500,
-		},
-		// when window width is >= 993px
-		993: {
-			spaceBetween: 16,
-			centeredSlides: true,
-			speed: 1000,
-		},
-	}
-});
-// testimonial slider js end--

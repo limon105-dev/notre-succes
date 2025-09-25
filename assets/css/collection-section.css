@@ -1,9 +1,30 @@
 /* collection-section css start */
 /* collection tab css start */
+.tab-wrapper {
+    position: relative;
+}
+
 .tab-navs {
     align-items: center;
     display: flex;
     gap: 50px;
+}
+
+.tab-navs-overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: none;
+    align-items: center;
+    justify-content: flex-end;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 37%, rgba(255, 255, 255, 1) 94%);
+    width: 90px;
+    color: var(--heading-text-color);
+    font-family: var(--heading-font);
+    font-size: 25px;
+    font-weight: 500;
+    line-height: 1;
+    height: 25px;
 }
 
 .tabs-nav-item-link {
@@ -28,14 +49,15 @@
 }
 
 .tab-content-wrapper {
-    padding: 16px 0 0 0;
+    padding: 20px 0 0 0;
 }
 
+.collection-items,
 .tab-product-items {
-    padding: 16px 0 0 0;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 4px;
+    row-gap: 30px;
 }
 
 .tab-content-text {
@@ -54,19 +76,28 @@
 /* collection tab css end */
 /* collection-section css end */
 
+@media only screen and (max-width: 992px) {
+
+    /* collection section css start */
+    .collection-items,
+    .tab-product-items {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* collection section css end */
+}
+
 @media only screen and (max-width: 767px) {
 
     /* collection section css start */
     .tab-navs {
         border-bottom: 0;
         overflow-x: scroll;
-        padding: 0 0 10px 0;
     }
 
-    .tab-content-items {
-        padding: 10px 0 0 0;
+    .tab-navs-overlay {
+        display: flex;
     }
-
 
     /* collection section css end */
 }
@@ -75,14 +106,17 @@
 @media only screen and (max-width: 575px) {
 
     /* collection section css start */
-
     .tab-navs {
-        justify-content: flex-start;
-        gap: 10px;
+        gap: 20px;
     }
 
-    .tabs-nav-item-link {
-        padding: 12.5px 30px;
+    .product-card .card-content .card-title {
+        line-height: 18px;
+    }
+
+    .tab-navs-overlay {
+        background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 94%);
+        width: 50px;
     }
 
     /* collection section css end */
