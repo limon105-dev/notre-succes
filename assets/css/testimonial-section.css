@@ -1,4 +1,8 @@
 /* testimonial-section css start */
+.testimonial-section.testimonial-bg {
+    background: var(--card-bg);
+}
+
 .testimonial-wrapper {
     padding: 0 0 0 20px;
 }
@@ -6,6 +10,7 @@
 .testimonial-item {
     padding: 15px;
     border: 1px solid var(--border-color3);
+    background: var(--white);
 }
 
 .testimonial-top {

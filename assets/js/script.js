@@ -10,6 +10,7 @@ $(document).ready(function () {
 		}
 	})
 
+
 	$(".ham-menu").click(function (event) {
 		event.stopPropagation();
 		$(".sidebar-wrapper").toggleClass("active");
@@ -81,7 +82,31 @@ $(document).ready(function () {
 		e.stopPropagation();
 	})
 
+	// **..product-accordion js start..**
+	$('.product-accordion-toggle-btn').on('click', function () {
+		$(this).next().slideToggle();
+		$(this).parent().toggleClass('active');
+		$(this).parent().siblings().removeClass('active').find('.product-accordion-item-content').slideUp();
+	});
+	// **..product-accordion js end..**
+
 })
+
+const navbar = document.querySelector(".navbar");
+let lastScrollPosition = 0;
+window.addEventListener("scroll", () => {
+	let currentScrollPosition = window.pageYOffset;
+
+	if (currentScrollPosition - lastScrollPosition > 0) {
+		navbar.classList.add("hide");
+		navbar.classList.remove("nav-fixed");
+	} else {
+		navbar.classList.add("nav-fixed");
+		navbar.classList.remove("hide");
+	}
+	lastScrollPosition = currentScrollPosition;
+})
+
 
 // btn js ---
 // primary btn---
@@ -210,45 +235,217 @@ var swiper = new Swiper(".testimonial-slider", {
 // testimonial slider js end--
 
 // product slider js start--
-var swiper = new Swiper(".product-slider", {
-	slidesPerView: 4,
-	spaceBetween: 20,
-	grabCursor: true,
-	loop: true,
-	pagination: {
-		el: ".swiper-pagination",
-		clickable: true,
-	},
-	navigation: {
-		nextEl: '.product-slider-btn-next',
-		prevEl: '.product-slider-btn-prev',
-	},
-	breakpoints: {
-		// when window width is >= 320px
-		1: {
-			spaceBetween: 10,
-			slidesPerView: 1.3,
-		},
-		// when window width is >= 768px
-		576: {
-			spaceBetween: 15,
-			slidesPerView: 2.2,
-		},
-		// when window width is >= 993px
-		993: {
-			spaceBetween: 16,
-			slidesPerView: 3,
-		},
-		// when window width is >= 1140x
-		1140: {
-			spaceBetween: 20,
-			slidesPerView: 3,
-		},
-		// when window width is >= 1290px
-		1290: {
-			spaceBetween: 20,
-			slidesPerView: 4,
+let mql = window.matchMedia("(max-width: 767px)");
+if (mql.matches) {
+	var swiper = new Swiper(".product-details-thumb-slider", {
+		loop: false,
+		spaceBetween: 2,
+		slidesPerView: 4.2,
+		breakpoints: {
+			1: {
+				slidesPerView: 4.2,
+			},
+			576: {
+				slidesPerView: 5.2,
+			}
 		}
-	}
-});
+	});
+	var swiper2 = new Swiper(".product-details-slider", {
+		spaceBetween: 0,
+		direction: "vertical",
+		slidesPerView: "auto",
+		freeMode: true,
+		mousewheel: true,
+		scrollbar: {
+			el: ".swiper-scrollbar",
+		},
+		thumbs: {
+			swiper: swiper,
+		},
+		breakpoints: {
+			1: {
+				freeMode: false,
+				spaceBetween: 5,
+				slidesPerView: 1,
+				mousewheel: false,
+				direction: "horizontal",
+			},
+			576: {
+				freeMode: false,
+				spaceBetween: 5,
+				slidesPerView: 1,
+				mousewheel: false,
+				direction: "horizontal",
+			},
+			767: {
+				spaceBetween: 0,
+				direction: "vertical",
+				slidesPerView: "auto",
+				freeMode: true,
+				mousewheel: true,
+			},
+			1024: {
+				spaceBetween: 0,
+				direction: "vertical",
+				slidesPerView: "auto",
+				freeMode: true,
+				mousewheel: true,
+			}
+		}
+	});
+} else {
+	var swiper2 = new Swiper(".product-details-slider", {
+		spaceBetween: 0,
+		direction: "vertical",
+		slidesPerView: "auto",
+		freeMode: true,
+		mousewheel: true,
+		scrollbar: {
+			el: ".swiper-scrollbar",
+		},
+	});
+
+}
+
+
+
+
+// var productDetailsThumbslider = new Swiper(".product-details-thumb-slider", {
+// 	loop: true,
+// 	spaceBetween: 2,
+// 	slidesPerView: 4.2,
+// 	breakpoints: {
+// 		1: {
+// 			slidesPerView: 4.2,
+// 		},
+// 		576: {
+// 			slidesPerView: 5.2,
+// 		}
+// 	}
+// });
+// var swiper2 = new Swiper(".product-details-slider", {
+// 	spaceBetween: 0,
+// 	direction: "vertical",
+// 	slidesPerView: "auto",
+// 	freeMode: true,
+// 	mousewheel: true,
+// 	scrollbar: {
+// 		el: ".swiper-scrollbar",
+// 	},
+// 	thumbs: {
+// 		swiper: productDetailsThumbslider,
+// 	},
+// 	breakpoints: {
+// 		1: {
+// 			freeMode: false,
+// 			spaceBetween: 5,
+// 			slidesPerView: 1,
+// 			mousewheel: false,
+// 			direction: "horizontal",
+// 		},
+// 		576: {
+// 			freeMode: false,
+// 			spaceBetween: 5,
+// 			slidesPerView: 1,
+// 			mousewheel: false,
+// 			direction: "horizontal",
+// 		},
+// 		768: {
+// 			freeMode: true,
+// 			spaceBetween: 0,
+// 			slidesPerView: "auto",
+// 			mousewheel: true,
+// 			direction: "vertical",
+// 			thumbs: {
+// 				enabled: false, // Disable thumbs at this breakpoint and below
+// 			},
+// 		},
+// 		1024: {
+// 			freeMode: true,
+// 			spaceBetween: 0,
+// 			slidesPerView: "auto",
+// 			mousewheel: true,
+// 			direction: "vertical",
+// 			thumbs: {
+// 				enabled: false, // Disable thumbs at this breakpoint and below
+// 			},
+// 		}
+// 	}
+// });
+
+// var productDetailsThumbslider = new Swiper(".product-details-thumb-slider", {
+// 	loop: true,
+// 	spaceBetween: 2,
+// 	slidesPerView: 4.2,
+// 	breakpoints: {
+// 		1: {
+// 			slidesPerView: 4.2
+// 		},
+// 		576: {
+// 			slidesPerView: 5.2
+// 		}
+// 	}
+// });
+
+// var swiper2 = new Swiper(".product-details-slider", {
+// 	spaceBetween: 0,
+// 	direction: "vertical",
+// 	slidesPerView: "auto",
+// 	freeMode: true,
+// 	mousewheel: true,
+// 	scrollbar: {
+// 		el: ".swiper-scrollbar",
+// 	},
+// 	breakpoints: {
+// 		1: {
+// 			freeMode: false,
+// 			spaceBetween: 5,
+// 			slidesPerView: 1,
+// 			mousewheel: false,
+// 			direction: "horizontal",
+// 		},
+// 		576: {
+// 			freeMode: false,
+// 			spaceBetween: 5,
+// 			slidesPerView: 1,
+// 			mousewheel: false,
+// 			direction: "horizontal",
+// 		},
+// 		768: {
+// 			freeMode: true,
+// 			spaceBetween: 0,
+// 			slidesPerView: "auto",
+// 			mousewheel: true,
+// 			direction: "vertical",
+// 		},
+// 		1024: {
+// 			freeMode: true,
+// 			spaceBetween: 0,
+// 			slidesPerView: "auto",
+// 			mousewheel: true,
+// 			direction: "vertical",
+// 		}
+// 	}
+// });
+
+// // ✅ Enable/disable thumbs dynamically
+// function handleThumbs() {
+// 	if (window.innerWidth < 768) {
+// 		if (!swiper2.thumbs.swiper) {
+// 			swiper2.thumbs.swiper = productDetailsThumbslider;
+// 			swiper2.thumbs.init();
+// 			swiper2.thumbs.update();
+// 		}
+// 	} else {
+// 		if (swiper2.thumbs.swiper) {
+// 			swiper2.thumbs.swiper = null; // unlink thumbs
+// 		}
+// 	}
+// }
+
+// // Run on load + resize
+// swiper2.on("init", handleThumbs);
+// swiper2.on("resize", handleThumbs);
+// swiper2.init();
+
 // product slider js end--

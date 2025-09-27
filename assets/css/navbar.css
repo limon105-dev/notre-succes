@@ -1,7 +1,6 @@
 /* navbar section css start */
 .navbar {
-    /* background-color: rgba(255, 255, 255, 0); */
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     right: 0;
@@ -17,8 +16,23 @@
 }
 
 .navbar.nav-fixed {
+    position: fixed;
     top: 0;
-    box-shadow: 0 3px 12px rgb(0 0 0 / 10%);
+    background: #fff0;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #f7f5f4;
+}
+
+.navbar.nav-fixed:hover{
+    background: var(--white);
+}
+
+.navbar.hide {
+    transform: translateY(-100%);
+    -webkit-transform: translateY(-100%);
+    -moz-transform: translateY(-100%);
+    -ms-transform: translateY(-100%);
+    -o-transform: translateY(-100%);
 }
 
 .navbar-wrapper-inner {
@@ -50,13 +64,17 @@
 .ham-menu span {
     height: 2px;
     width: 100%;
-    background-color: var(--black);
+    background: var(--white);
     border-radius: 25px;
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
     transition: .3s ease;
+}
+
+.navbar.nav-fixed .ham-menu span {
+    background: var(--black);
 }
 
 .ham-menu span:nth-child(1) {
@@ -133,6 +151,10 @@
     padding: 0px 5px;
 }
 
+.navbar.nav-fixed .nav-link-text {
+    color: var(--paragraph-text-color);
+}
+
 .nav-link-text .icon i,
 .dropdown-nav-link-text .icon i {
     transition: ease .3s;
@@ -147,7 +169,7 @@
     transform: rotate(-180deg);
 }
 
-.nav-link-text::after {
+/* .nav-link-text::after {
     content: "";
     position: absolute;
     right: 0px;
@@ -162,6 +184,10 @@
 .nav-link:hover .nav-link-text::after {
     left: 0px;
     width: 100%;
+} */
+
+.nav-link:hover .nav-link-text {
+    font-weight: 500;
 }
 
 .megamenu-wrapper {
@@ -259,19 +285,9 @@
     cursor: pointer;
 }
 
-.nav-icons li a svg circle,
-.nav-icons li span svg circle {
-    stroke: var(--paragraph-text-color);
-    transition: all ease .3s;
-    -webkit-transition: all ease .3s;
-    -moz-transition: all ease .3s;
-    -ms-transition: all ease .3s;
-    -o-transition: all ease .3s;
-}
-
 .nav-icons li a svg path,
 .nav-icons li span svg path {
-    stroke: var(--paragraph-text-color);
+    stroke: var(--white);
     transition: all ease .3s;
     -webkit-transition: all ease .3s;
     -moz-transition: all ease .3s;
@@ -279,20 +295,11 @@
     -o-transition: all ease .3s;
 }
 
-/* .nav-icons li a:hover,
-.nav-icons li span:hover {
-    background-color: var(--hover-color);
-} */
-
-.nav-icons li a:hover svg circle,
-.nav-icons li span:hover svg circle {
-    stroke: var(--hover-color);
+.navbar.nav-fixed .nav-icons li a svg path,
+.navbar.nav-fixed .nav-icons li span svg path {
+    stroke: var(--paragraph-text-color);
 }
 
-.nav-icons li a:hover svg path,
-.nav-icons li span:hover svg path {
-    stroke: var(--hover-color);
-}
 
 .nav-icons.mabile-nav-icons {
     padding: 15px 20px;
@@ -381,11 +388,6 @@
     padding: 0 20px;
     border: 1px solid var(--black);
     color: var(--paragraph-text-color);
-    border-radius: 5px 0 0 5px;
-    -webkit-border-radius: 5px 0 0 5px;
-    -moz-border-radius: 5px 0 0 5px;
-    -ms-border-radius: 5px 0 0 5px;
-    -o-border-radius: 5px 0 0 5px;
 }
 
 .search-input-field input::placeholder {
@@ -407,11 +409,6 @@
     transition: ease .3s;
     cursor: pointer;
     background-color: var(--white);
-    border-radius: 0 5px 5px 0;
-    -webkit-border-radius: 0 5px 5px 0;
-    -moz-border-radius: 0 5px 5px 0;
-    -ms-border-radius: 0 5px 5px 0;
-    -o-border-radius: 0 5px 5px 0;
 }
 
 .search-icon svg circle {
@@ -427,9 +424,11 @@
 }
 
 .nav-icon-area {
+    justify-content: flex-end;
     display: flex;
     align-items: center;
     gap: 10px;
+    width: 275px;
 }
 
 .mobile-navbar-brand {
@@ -533,6 +532,7 @@
     font-size: 22px;
     line-height: 1;
     width: 100%;
+    color: var(--paragraph-text-color);
 }
 
 .sidebar-wrapper .nav-link-text:hover {
